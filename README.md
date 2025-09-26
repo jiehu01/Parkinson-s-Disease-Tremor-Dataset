@@ -1,6 +1,7 @@
 # Parkinson’s Disease (PD) Tremor Datasets
 
 We compiled multiple Parkinson’s disease (PD) tremor datasets, each collected using IMU sensors. Tremor severity in these datasets is labeled on a scale from 0 to 3, where 0 indicates no tremor, and 1–3 represent increasing levels of tremor severity. Further details can be found in the paper [Time Series Adaptation Network for Sensor-based Human Activity Recognition](#ref4).
+https://github.com/jiehu01/Parkinson-s-Disease-Tremor-Dataset
 
 ## 1. TIM-Tremor Dataset (Technology in Motion Tremor, TI) [1]
 
