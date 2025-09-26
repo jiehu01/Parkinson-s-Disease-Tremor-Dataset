@@ -1,33 +1,36 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parkinson's Disease Tremor Dataset</title>
+  <title>Parkinson’s Disease (PD) Tremor Datasets</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background: #f9f9f9;
+      line-height: 1.6;
+      background: #fdfdfd;
       color: #333;
     }
     header {
-      background: #0366d6;
-      color: white;
-      padding: 1rem 2rem;
+      background: #24292e;
+      color: #fff;
+      padding: 20px;
       text-align: center;
     }
     header h1 {
       margin: 0;
+      font-size: 28px;
     }
     nav {
-      margin-top: 0.5rem;
+      background: #0366d6;
+      padding: 10px;
+      text-align: center;
     }
     nav a {
-      color: white;
+      color: #fff;
       text-decoration: none;
-      margin: 0 10px;
+      margin: 0 15px;
       font-weight: bold;
     }
     nav a:hover {
@@ -35,83 +38,187 @@
     }
     main {
       max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    section {
-      background: white;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin: auto;
+      padding: 20px;
     }
     h2 {
-      margin-top: 0;
       color: #0366d6;
+      margin-top: 40px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background: #f4f4f4;
     }
     footer {
       text-align: center;
-      padding: 1rem;
-      background: #eee;
-      margin-top: 2rem;
-      font-size: 0.9rem;
+      padding: 15px;
+      margin-top: 40px;
+      background: #f4f4f4;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Parkinson's Disease Tremor Dataset</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#datasets">Datasets</a>
-      <a href="#repository">Repository</a>
-      <a href="https://github.com/jiehu01/Parkinson-s-Disease-Tremor-Dataset" target="_blank">GitHub Repo</a>
-    </nav>
+    <h1>Parkinson’s Disease (PD) Tremor Datasets</h1>
+    <p>IMU-based Tremor Data for Parkinson’s Disease Research</p>
   </header>
 
+  <nav>
+    <a href="#datasets">Datasets</a>
+    <a href="#organization">Data Organization</a>
+    <a href="#preprocessing">Preprocessing</a>
+    <a href="#statistics">Statistics</a>
+    <a href="#citations">Citations</a>
+    <a href="#references">References</a>
+    <a href="https://github.com/jiehu01/Parkinson-s-Disease-Tremor-Dataset" target="_blank">GitHub Repo</a>
+  </nav>
+
   <main>
-    <section id="about">
-      <h2>About</h2>
+    <section id="intro">
       <p>
-        This project provides publicly available datasets for research on Parkinson's disease tremors. 
-        The goal is to support studies in signal processing, machine learning, and healthcare applications.
+        We compiled multiple Parkinson’s disease (PD) tremor datasets, each collected using IMU sensors.
+        Tremor severity in these datasets is labeled on a scale from 0 to 3, where 0 indicates no tremor,
+        and 1–3 represent increasing levels of tremor severity.
+        Further details can be found in the paper 
+        <em>Time Series Adaptation Network for Sensor-based Human Activity Recognition</em>.
+ <p>
+    📂 Repository: 
+    <a href="https://github.com/jiehu01/Parkinson-s-Disease-Tremor-Dataset" target="_blank">
+      https://github.com/jiehu01/Parkinson-s-Disease-Tremor-Dataset
+    </a> </p>
+
+
       </p>
     </section>
 
     <section id="datasets">
-      <h2>Available Datasets</h2>
-      <ul>
-        <li><a href="IMU-Wild/">IMU-Wild</a> – Inertial measurement unit data collected in natural settings.</li>
-        <li><a href="PD-BioStamp/">PD-BioStamp</a> – Tremor data collected with wearable sensors.</li>
-        <li><a href="PdAssist/">PdAssist</a> – Dataset supporting PD monitoring applications.</li>
-        <li><a href="Tim-Tremor/">Tim-Tremor</a> – Clinical tremor recordings with annotations.</li>
-      </ul>
-    </section>
-
-    <section id="repository">
-      <h2>Repository</h2>
+      <h2>1. TIM-Tremor Dataset [1]</h2>
       <p>
-        You can find the full dataset and project files on GitHub:  
-        <a href="https://github.com/jiehu01/Parkinson-s-Disease-Tremor-Dataset" target="_blank">
-          https://github.com/jiehu01/Parkinson-s-Disease-Tremor-Dataset
-        </a>
+        Collected postural and resting tremor data from 55 patients using accelerometers attached to the back of the hand,
+        along with video recordings. Patients performed tasks like counting, tapping, and piano playing to trigger tremor.
+        Sampling frequency: 1000 Hz. Labels linearly mapped (<code>label_new = label/2</code>).
+      </p>
+
+      <h2>2. PdAssist Dataset [2]</h2>
+      <p>
+        Collected via smartphone app with guided tasks (arm hanging, balance, gait, postural tremor, resting tremor).
+        Used accelerometer data from resting tremor tests of both hands.  
+        Sampling frequency: 50 Hz. Contains data from hundreds of patients.
+      </p>
+
+      <h2>3. IMU-Wild Dataset [3]</h2>
+      <p>
+        Data collected outdoors from 45 subjects (31 PD, 14 healthy) during tremor episodes using accelerometer and gyroscope sensors.
+        Used tremor data from “phone-calling” tasks.  
+        Sampling frequency: 50 Hz.
+      </p>
+
+      <h2>4. PD-BioStamp Dataset [4]</h2>
+      <p>
+        Collected with 5 wearable sensors on chest and limbs from 34 PD patients during medication “on/off” periods.
+        Used accelerometer data from two upper-limb sensors.  
+        Sampling frequency: 50 Hz.
       </p>
     </section>
 
-    <section>
-      <h2>How to Cite</h2>
+    <section id="organization">
+      <h2>Data Organization</h2>
       <p>
-        Please cite the recommended references when using this dataset in your research:
+        Only accelerometer data are used. Data are organized as <code>&lt;X.npy, Y.npy&gt;</code> pairs:
       </p>
       <ul>
-        <li>Wen S, Chen Y, Ma Y, et al. <i>Time series adaptation network for sensor-based cross domain human activity recognition</i>. IJCNN 2023.</li>
-        <li>Wen S, Chen Y, Guo S, et al. <i>Discriminative domain adaptation network for fine-grained disease severity classification</i>. IJCNN 2023.</li>
+        <li><code>X.npy</code>: shape <code>[num_samples, 128, 3]</code>, stores sensor data</li>
+        <li><code>Y.npy</code>: shape <code>[num_samples]</code>, stores labels</li>
       </ul>
+      <p>Example: <code>X.npy</code> = [5,128,3], <code>Y.npy</code> = [5] → 5 samples per Raw Segment.</p>
+    </section>
+
+    <section id="preprocessing">
+      <h2>Data Preprocessing</h2>
+      <p>
+        - Sampling frequency unified to 50 Hz (linear interpolation).<br>
+        - Sliding window: length 128 (2.56s), non-overlapping.<br>
+        - Variable-length raw segments divided into fixed-size samples.
+      </p>
+    </section>
+
+    <section id="statistics">
+      <h2>Processed Data Statistics</h2>
+      <table>
+        <tr>
+          <th>Dataset</th>
+          <th>Users</th>
+          <th>Raw Segments</th>
+          <th>Samples</th>
+          <th>Samples per Label (0–3)</th>
+        </tr>
+        <tr>
+          <td>TIM-Tremor</td>
+          <td>55</td>
+          <td>340</td>
+          <td>3092</td>
+          <td>1180, 761, 696, 455</td>
+        </tr>
+        <tr>
+          <td>PdAssist</td>
+          <td>121</td>
+          <td>1171</td>
+          <td>6504</td>
+          <td>5939, 270, 257, 38</td>
+        </tr>
+        <tr>
+          <td>IMU-Wild</td>
+          <td>55</td>
+          <td>1944</td>
+          <td>12517</td>
+          <td>8916, 2215, 1145, 241</td>
+        </tr>
+        <tr>
+          <td>PD-BioStamp</td>
+          <td>68</td>
+          <td>399</td>
+          <td>1947</td>
+          <td>1791, 47, 87, 22</td>
+        </tr>
+      </table>
+    </section>
+
+    <section id="citations">
+      <h2>Recommended Citations</h2>
+      <ul>
+        <li>Wen S, Chen Y, Ma Y, et al. <em>Time series adaptation network for sensor-based cross domain human activity recognition</em>. IJCNN 2023.</li>
+        <li>Wen S, Chen Y, Guo S, et al. <em>Discriminative domain adaptation network for fine-grained disease severity classification</em>. IJCNN 2023.</li>
+      </ul>
+    </section>
+
+    <section id="references">
+      <h2>References</h2>
+      <ol>
+        <li>Paulina B, Jian Z, Silvia O, Pintea A, et al. <em>Technology in motion tremor dataset: TIM-Tremor</em>.</li>
+        <li>Chen Y, Yang X, Chen B, et al. <em>PdAssist: Objective and quantified symptom assessment via smartphone</em>. BIBM 2017.</li>
+        <li>Papadopoulos A, Kyritsis K, Klingelhoefer L, et al. <em>Detecting parkinsonian tremor in-the-wild</em>. IEEE JBHI 2019.</li>
+        <li>Adams J, Dinesh K, Snyder C, et al. <em>PD-BioStampRC21</em>. IEEE Dataport.</li>
+      </ol>
     </section>
   </main>
 
   <footer>
-    &copy; 2025 Parkinson's Disease Tremor Dataset | Hosted on GitHub Pages
+    <p>
+      &copy; 2025 Parkinson’s Disease Tremor Datasets Project.  
+      View on <a href="https://github.com/jiehu01/Parkinson-s-Disease-Tremor-Dataset" target="_blank">GitHub</a>.
+    </p>
   </footer>
 </body>
 </html>
